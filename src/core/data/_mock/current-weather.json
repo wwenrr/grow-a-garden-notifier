@@ -1,0 +1,12 @@
+{
+    "icon": "☀️",
+    "description": "The bloodnight has ended. Time to dry up your crops and reset!",
+    "visualCue": "Weather is returning to normal.",
+    "cropBonuses": "Standard growth",
+    "mutations": [],
+    "rarity": "Always active when no event",
+    "updatedAt": 1748700921213,
+    "currentWeather": "Bloodnight Ended",
+    "weatherType": "Sunny",
+    "effectDescription": "The bloodnight has ended. Time to dry up your crops and reset!"
+}

@@ -1,0 +1,142 @@
+{
+    "Carrot": {
+        "name": "Carrot",
+        "Sheckle Price": "10",
+        "Robux Price": "7",
+        "Sheckle Minimum Value": "18",
+        "Tier": "Common"
+    },
+    "Strawberry": {
+        "name": "Strawberry",
+        "Sheckle Price": "50",
+        "Robux Price": "21",
+        "Sheckle Minimum Value": "14",
+        "Tier": "Common"
+    },
+    "Blueberry": {
+        "name": "Blueberry",
+        "Sheckle Price": "400",
+        "Robux Price": "49",
+        "Sheckle Minimum Value": "18",
+        "Tier": "Uncommon"
+    },
+    "Orange Tulip": {
+        "name": "Orange Tulip",
+        "Sheckle Price": "600",
+        "Robux Price": "14",
+        "Sheckle Minimum Value": "767",
+        "Tier": "Uncommon"
+    },
+    "Tomato": {
+        "name": "Tomato",
+        "Sheckle Price": "800",
+        "Robux Price": "79",
+        "Sheckle Minimum Value": "27",
+        "Tier": "Rare"
+    },
+    "Corn": {
+        "name": "Corn",
+        "Sheckle Price": "1300",
+        "Robux Price": "135",
+        "Sheckle Minimum Value": "36",
+        "Tier": "Rare"
+    },
+    "Daffodil": {
+        "name": "Daffodil",
+        "Sheckle Price": "1000",
+        "Robux Price": "19",
+        "Sheckle Minimum Value": "903",
+        "Tier": "Rare"
+    },
+    "Watermelon": {
+        "name": "Watermelon",
+        "Sheckle Price": "2500",
+        "Robux Price": "195",
+        "Sheckle Minimum Value": "2708",
+        "Tier": "Legendary"
+    },
+    "Pumpkin": {
+        "name": "Pumpkin",
+        "Sheckle Price": "3000",
+        "Robux Price": "210",
+        "Sheckle Minimum Value": "3700",
+        "Tier": "Legendary"
+    },
+    "Apple": {
+        "name": "Apple",
+        "Sheckle Price": "3250",
+        "Robux Price": "390",
+        "Sheckle Minimum Value": "248",
+        "Tier": "Legendary"
+    },
+    "Bamboo": {
+        "name": "Bamboo",
+        "Sheckle Price": "4000",
+        "Robux Price": "200",
+        "Sheckle Minimum Value": "3610",
+        "Tier": "Legendary"
+    },
+    "Coconut": {
+        "name": "Coconut",
+        "Sheckle Price": "6000",
+        "Robux Price": "435",
+        "Sheckle Minimum Value": "361",
+        "Tier": "Mythical"
+    },
+    "Cactus": {
+        "name": "Cactus",
+        "Sheckle Price": "15000",
+        "Robux Price": "497",
+        "Sheckle Minimum Value": "3068",
+        "Tier": "Mythical"
+    },
+    "Dragon Fruit": {
+        "name": "Dragon Fruit",
+        "Sheckle Price": "50000",
+        "Robux Price": "782",
+        "Sheckle Minimum Value": "4287",
+        "Tier": "Mythical"
+    },
+    "Mango": {
+        "name": "Mango",
+        "Sheckle Price": "100000",
+        "Robux Price": "580",
+        "Sheckle Minimum Value": "5866",
+        "Tier": "Mythical"
+    },
+    "Grape": {
+        "name": "Grape",
+        "Sheckle Price": "850000",
+        "Robux Price": "599",
+        "Sheckle Minimum Value": "7085",
+        "Tier": "Divine"
+    },
+    "Mushroom": {
+        "name": "Mushroom",
+        "Sheckle Price": "150000",
+        "Robux Price": "249",
+        "Sheckle Minimum Value": "136278",
+        "Tier": "Divine"
+    },
+    "Pepper": {
+        "name": "Pepper",
+        "Sheckle Price": "1000000",
+        "Robux Price": "629",
+        "Sheckle Minimum Value": "7220",
+        "Tier": "Divine"
+    },
+    "Cacao": {
+        "name": "Cacao",
+        "Sheckle Price": "2500000",
+        "Robux Price": "679",
+        "Sheckle Minimum Value": "9928",
+        "Tier": "Divine"
+    },
+    "Beanstalk": {
+        "name": "Beanstalk",
+        "Sheckle Price": "10000000",
+        "Robux Price": "715",
+        "Sheckle Minimum Value": "18050",
+        "Tier": "Prismatic"
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "Items": {
+        "Carrot": "https://cdn-icons-png.flaticon.com/128/883/883760.png",
+        "Strawberry": "https://cdn-icons-png.flaticon.com/128/7315/7315465.png",
+        "Blueberry": "https://cdn-icons-png.flaticon.com/128/680/680942.png",
+        "Orange Tulip": "https://cdn-icons-png.flaticon.com/128/6080/6080675.png",
+        "Tomato": "https://cdn-icons-png.flaticon.com/128/1202/1202125.png",
+        "Corn": "https://cdn-icons-png.flaticon.com/128/1147/1147593.png",
+        "Daffodil": "https://cdn-icons-png.flaticon.com/128/1601/1601048.png",
+        "Watermelon": "https://cdn-icons-png.flaticon.com/128/2224/2224321.png",
+        "Pumpkin": "https://cdn-icons-png.flaticon.com/128/3768/3768530.png",
+        "Apple": "https://cdn-icons-png.flaticon.com/128/415/415733.png",
+        "Bamboo": "https://cdn-icons-png.flaticon.com/128/1471/1471394.png",
+        "Coconut": "https://cdn-icons-png.flaticon.com/128/1475/1475932.png",
+        "Cactus": "https://cdn-icons-png.flaticon.com/128/874/874928.png",
+        "Dragon Fruit": "https://cdn-icons-png.flaticon.com/128/3944/3944250.png",
+        "Mango": "https://cdn-icons-png.flaticon.com/128/3137/3137152.png",
+        "Grape": "https://cdn-icons-png.flaticon.com/128/8043/8043515.png",
+        "Mushroom": "https://cdn-icons-png.flaticon.com/128/1147/1147609.png",
+        "Pepper": "https://cdn-icons-png.flaticon.com/128/5371/5371600.png",
+        "Cacao": "https://cdn-icons-png.flaticon.com/128/3893/3893556.png",
+        "Beanstalk": "https://cdn-icons-png.flaticon.com/128/4206/4206426.png",
+        "NotFound": "https://cdn-icons-png.flaticon.com/128/7334/7334113.png",
+        "Torch": "https://cdn-icons-png.flaticon.com/128/1021/1021114.png",
+        "Shovel Grave": "https://cdn-icons-png.flaticon.com/128/4056/4056853.png",
+        "Round Metal Arbour": "https://cdn-icons-png.flaticon.com/128/7755/7755574.png",
+        "Blood Hedgehog": "https://cdn-icons-png.flaticon.com/128/1581/1581627.png",
+        "Common Egg": "https://cdn-icons-png.flaticon.com/128/1526/1526771.png",
+        "Uncommon Egg": "https://cdn-icons-png.flaticon.com/128/1566/1566468.png",
+        "Rare Egg": "https://cdn-icons-png.flaticon.com/128/2663/2663213.png",
+        "Legendary Egg": "https://cdn-icons-png.flaticon.com/128/2541/2541161.png",
+        "Bug Egg": "https://cdn-icons-png.flaticon.com/128/1296/1296541.png",
+        "Mythic Egg": "https://cdn-icons-png.flaticon.com/128/1566/1566471.png",
+        "Blood Kiwi": "https://cdn-icons-png.flaticon.com/128/1998/1998696.png",
+        "Star Caller": "https://cdn-icons-png.flaticon.com/128/4338/4338691.png",
+        "Blood Banana": "https://cdn-icons-png.flaticon.com/128/18996/18996742.png",
+        "Night Seed Pack": "https://cdn-icons-png.flaticon.com/128/2367/2367577.png",
+        "Moon Mango": "https://cdn-icons-png.flaticon.com/128/17914/17914608.png",
+
+        "Favorite Tool": "https://cdn-icons-png.flaticon.com/128/5065/5065550.png",
+        "Trowel": "https://cdn-icons-png.flaticon.com/128/8039/8039231.png",
+        "Watering Can": "https://cdn-icons-png.flaticon.com/128/2470/2470075.png",
+        "Recall Wrench": "https://cdn-icons-png.flaticon.com/128/2593/2593065.png",
+        "Advanced Sprinkler": "https://cdn-icons-png.flaticon.com/128/8980/8980231.png",
+        "Basic Sprinkler": "https://cdn-icons-png.flaticon.com/128/1006/1006177.png",
+        "Godly Sprinkler": "https://cdn-icons-png.flaticon.com/128/8957/8957119.png",
+
+        "Large Wood Flooring": "https://cdn-icons-png.flaticon.com/128/1959/1959826.png",
+        "Sign Crate": "https://cdn-icons-png.flaticon.com/128/6491/6491529.png",
+        "Common Gnome Crate": "https://cdn-icons-png.flaticon.com/128/6491/6491529.png",
+        "Rake": "https://cdn-icons-png.flaticon.com/128/809/809016.png",
+        "Small Circle Tile": "https://cdn-icons-png.flaticon.com/128/18094/18094556.png",
+        "Small Stone Table": "https://cdn-icons-png.flaticon.com/128/1391/1391321.png",
+        "Twilight Crate": "https://cdn-icons-png.flaticon.com/128/6491/6491529.png",
+        "Moon Cat": "https://cdn-icons-png.flaticon.com/128/3704/3704886.png",
+        "Log": "https://cdn-icons-png.flaticon.com/128/928/928797.png",
+        "White Bench": "https://cdn-icons-png.flaticon.com/128/12787/12787793.png",
+        "Viney Beam": "https://cdn-icons-png.flaticon.com/128/605/605796.png",
+        "Ring Walkway": "https://cdn-icons-png.flaticon.com/128/15876/15876577.png",
+        "Water Trough": "https://cdn-icons-png.flaticon.com/128/12392/12392252.png"
+    },
+    "Price": {
+        "Sheckle": "https://cdn-icons-png.flaticon.com/128/10692/10692946.png",
+        "Robux": "https://img.icons8.com/?size=96&id=zemhCLrteb5v&format=png"
+    },
+    "Website": {
+        "Header": {
+            "Icon": "https://cdn-icons-png.flaticon.com/128/1543/1543908.png",
+            "Setting": "https://cdn-icons-png.flaticon.com/128/3524/3524659.png",
+            "Sam's Seed": "https://cdn-icons-png.flaticon.com/128/346/346246.png"
+        },
+        "Store": {
+            "Blood": "https://cdn-icons-png.flaticon.com/128/967/967119.png",
+            "Twilight": "https://cdn-icons-png.flaticon.com/128/3504/3504661.png",
+            "Cosmetic": "https://cdn-icons-png.flaticon.com/128/1312/1312091.png",
+            "Egg": "https://cdn-icons-png.flaticon.com/128/532/532573.png",
+            "Seed": "https://cdn-icons-png.flaticon.com/128/346/346195.png",
+            "Gear": "https://cdn-icons-png.flaticon.com/128/60/60473.png",
+            "Event": "https://cdn-icons-png.flaticon.com/128/1968/1968779.png",
+            "Shop": "https://cdn-icons-png.flaticon.com/128/1040/1040254.png"
+        }
+    }
+}
