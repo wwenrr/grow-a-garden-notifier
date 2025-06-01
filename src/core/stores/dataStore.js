@@ -34,7 +34,7 @@ const useDataStore = create(
                 const timeDiff = currentTime - new Date(lastUpdateTime);
 
                 if(key === "CurrentWeather") {
-                    return timeDiff > 1000 * 60 * 20
+                    return timeDiff > 1000 * 60 * 30
                 }
 
                 if(key === "CurrentSpecCrops") {
