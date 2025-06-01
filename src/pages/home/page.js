@@ -48,7 +48,7 @@ export default function Home({data}) {
                         const key = item.split(' **')[0];
                         if (isNotified(key)) {
                             const savedLastUpdate = getLastUpdate(key);
-                            if (savedLastUpdate && savedLastUpdate === CurrentCrops.updatedAt) {
+                            if (savedLastUpdate && savedLastUpdate !== CurrentCrops.updatedAt) {
                                 addNotify(key, CurrentCrops.updatedAt);
                                 new Notification('Item Updated', {
                                     body: `${key} has been updated in Shop Stock`,
