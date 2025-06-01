@@ -38,9 +38,9 @@ const useDataStore = create(
                 }
 
                 if(key === "CurrentSpecCrops") {
-                    return timeDiff > 1000 * 60 * 15;
+                    return timeDiff > 1000 * 60 * 30;
                 }
-                
+
                 return timeDiff > 1000 * 60 * 5;
             }
         }),
