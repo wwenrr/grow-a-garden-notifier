@@ -7,6 +7,7 @@ import { useParamsStore } from '@/core/stores/paramsStore';
 import useNotifyStore from '@/core/stores/notifyStore';
 import useSettingsStore from '@/core/stores/settingsStore';
 import { toast } from 'react-toastify';
+import { INTERVAL } from '@/core/constants';
 
 const Blood = images.Website.Store.Blood;
 const Twilight = images.Website.Store.Twilight;
@@ -46,8 +47,9 @@ export default function Home({data}) {
                     const key = item.split(' **')[0];
                     if (isNotified(key)) {
                         const savedLastUpdate = getLastUpdate(key);
+
                         if (savedLastUpdate && savedLastUpdate !== CurrentCrops.updatedAt) {
-                            console.log('Item Updated', key);
+                            addNotify(key, CurrentCrops.updatedAt);
                             new Notification('Item Updated', {
                                 body: `${key} has been updated in Shop Stock`,
                                 icon: ItemsImage[key] || ItemsImage.NotFound
@@ -62,6 +64,8 @@ export default function Home({data}) {
         };
 
         checkCropsChanges();
+        const interval = setInterval(checkCropsChanges, INTERVAL.CHECK_DATA);
+        return () => clearInterval(interval);
     }, [CurrentCrops, soundEnabled]);
 
     // Kiểm tra thay đổi của CurrentSpecCrops
@@ -76,7 +80,7 @@ export default function Home({data}) {
                     if (isNotified(key)) {
                         const savedLastUpdate = getLastUpdate(key);
                         if (savedLastUpdate && savedLastUpdate !== CurrentSpecCrops.updatedAt) {
-                            console.log('Item Updated', key);
+                            addNotify(key, CurrentSpecCrops.updatedAt);
                             new Notification('Item Updated', {
                                 body: `${key} has been updated in ${section === 'cosmetics' ? 'Shop Stock' : 'Event Store'}`,
                                 icon: ItemsImage[key] || ItemsImage.NotFound
@@ -91,6 +95,8 @@ export default function Home({data}) {
         };
 
         checkSpecCropsChanges();
+        const interval = setInterval(checkSpecCropsChanges, INTERVAL.CHECK_DATA);
+        return () => clearInterval(interval);
     }, [CurrentSpecCrops]);
 
     // Kiểm tra thay đổi của CurrentWeather
@@ -101,7 +107,7 @@ export default function Home({data}) {
             if (isNotified('weather')) {
                 const savedLastUpdate = getLastUpdate('weather');
                 if (savedLastUpdate && savedLastUpdate !== CurrentWeather.updatedAt) {
-                    console.log('Weather Updated');
+                    addNotify('weather', CurrentWeather.updatedAt);
                     new Notification('Weather Updated', {
                         body: `Current weather: ${CurrentWeather.currentWeather}\n${CurrentWeather.description}`,
                         icon: CurrentWeather.icon
@@ -114,6 +120,8 @@ export default function Home({data}) {
         };
 
         checkWeatherChanges();
+        const interval = setInterval(checkWeatherChanges, INTERVAL.CHECK_DATA);
+        return () => clearInterval(interval);
     }, [CurrentWeather]);
 
     const toggleContainer = (container) => {
