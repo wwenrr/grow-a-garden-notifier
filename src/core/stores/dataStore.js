@@ -32,7 +32,16 @@ const useDataStore = create(
                 const lastUpdateTime = get().data[key]?.updatedAt;
                 if (!lastUpdateTime) return true;
                 const timeDiff = currentTime - new Date(lastUpdateTime);
-                return timeDiff > 1000 * 60 * 6;
+
+                if(key === "CurrentWeather") {
+                    return timeDiff > 1000 * 60 * 20
+                }
+
+                if(key === "CurrentSpecCrops") {
+                    return timeDiff > 1000 * 60 * 15;
+                }
+                
+                return timeDiff > 1000 * 60 * 5;
             }
         }),
         {

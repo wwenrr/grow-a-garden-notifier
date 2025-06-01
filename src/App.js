@@ -29,42 +29,40 @@ function App() {
         const timeDiff = currentTime - lastCacheTime;
         const minutesDiff = timeDiff / (1000 * 60);
 
-        if(minutesDiff <= INTERVAL.CACHE_TIME) {
+        if(minutesDiff <= INTERVAL.CACHE_TIME && data && Object.keys(data).length > 0) {
           toast.info(`Data was cached, use cached data...`, { autoClose: 500 });
           console.log('Data was cached, use cached data...', minutesDiff);
           setData(data);
-        } else {
-          if(data === null || data === undefined) {
-            toast.info('Data not in storage, fetching new data...');
-            data.CurrentCrops = await apiService.getCurrentCrops();
-            data.CurrentSpecCrops = await apiService.getCurrentSpecCrops();
-            data.CurrentWeather = await apiService.getCurrentWeather();
-          } else {
-            const checkCurrentCrops = checkTime('CurrentCrops');
-            const checkCurrentSpecCrops = checkTime('CurrentSpecCrops');
-            const checkCurrentWeather = checkTime('CurrentWeather');
-
-            if(checkCurrentCrops) {
-              data.CurrentCrops = await apiService.getCurrentCrops();
-              toast.success('Fetching CurrentCrops', { autoClose: 500 });
-            }
-
-            if(checkCurrentSpecCrops) {
-              data.CurrentSpecCrops = await apiService.getCurrentSpecCrops();
-              toast.success('Fetching CurrentSpecCrops', { autoClose: 500 });
-            }
-
-            if(checkCurrentWeather) {
-              data.CurrentWeather = await apiService.getCurrentWeather();
-              toast.success('Fetching CurrentWeather', { autoClose: 500 });
-            }
-          }
+          return;
         }
-      } else {
-        toast.info('Data not in storage, fetching new data...', { autoClose: 500 });
+      }
+
+      // Nếu không có cache hoặc cache đã hết hạn
+      toast.info('Fetching new data...', { autoClose: 500 });
+      
+      // Khởi tạo data object nếu chưa có
+      if (!data) {
+        data = {};
+      }
+
+      // Fetch các data cần thiết
+      const checkCurrentCrops = !data.CurrentCrops || checkTime('CurrentCrops');
+      const checkCurrentSpecCrops = !data.CurrentSpecCrops || checkTime('CurrentSpecCrops');
+      const checkCurrentWeather = !data.CurrentWeather || checkTime('CurrentWeather');
+
+      if(checkCurrentCrops) {
         data.CurrentCrops = await apiService.getCurrentCrops();
+        toast.success('Fetching CurrentCrops', { autoClose: 500 });
+      }
+
+      if(checkCurrentSpecCrops) {
         data.CurrentSpecCrops = await apiService.getCurrentSpecCrops();
+        toast.success('Fetching CurrentSpecCrops', { autoClose: 500 });
+      }
+
+      if(checkCurrentWeather) {
         data.CurrentWeather = await apiService.getCurrentWeather();
+        toast.success('Fetching CurrentWeather', { autoClose: 500 });
       }
 
       setDataStore(data);
@@ -72,6 +70,7 @@ function App() {
       setData(data);
     } catch (error) {
       console.log(error);
+      toast.error('Error fetching data', { autoClose: 500 });
     }
   }
 
