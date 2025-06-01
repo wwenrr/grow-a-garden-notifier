@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Grow A Garden Notifier
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A notification application for the Grow A Garden game, helping players track and receive notifications about in-game products.
 
-## Available Scripts
+## Key Features
 
-In the project directory, you can run:
+- Track product list in the game
+- Receive notifications for product updates
+- User-friendly interface with smooth animations
+- Easy notification list management
+- URL parameter integration for state persistence
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend Framework**: React 19.1.0
+- **State Management**: Zustand 5.0.5
+- **Routing**: React Router DOM 7.6.1
+- **Animation**: Framer Motion 12.15.0
+- **Styling**: Emotion (React & Styled) 11.14.0
+- **Notifications**: React Toastify 11.0.5
+- **Build Tool**: CRACO 7.1.0
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+src/
+├── components/         # Reusable components
+│   ├── layouts/       # Layout components
+│   └── popUps/        # Popup components
+├── core/              # Core functionality
+│   ├── constants/     # Constants and configurations
+│   ├── data/         # Data models and mocks
+│   ├── helpers/      # Utility functions
+│   ├── models/       # Data models
+│   ├── services/     # API services
+│   └── stores/       # Zustand stores
+├── pages/            # Page components
+├── App.js           # Root component
+├── index.js         # Entry point
+└── styles.js        # Global styles
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone repository:
+```bash
+git clone [repository-url]
+cd grow-a-garden-notifier
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Run in development mode:
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Build for production:
+```bash
+npm run build
+```
 
-### `npm run eject`
+## Configuration
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### URL Parameters
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application uses the following URL parameters:
+- `notifyItemList`: Display notification list
+- `settings`: Open settings
+- `samSeed`: Open Sam Seed popup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Stores
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **paramsStore**: Manages URL parameters and URL synchronization
+- **notifyStore**: Manages notification list and CRUD operations
 
-## Learn More
+## Detailed Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### NotifyItemList
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Display list of tracked products
+- Allow removal of products from the list
+- Show last update time
+- Smooth open/close animations
+- Close by clicking outside
 
-### Code Splitting
+### UI/UX
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Dark interface with blur effects
+- Smooth animations for all interactions
+- Responsive design
+- Custom scrollbar
+- Toast notifications for actions
 
-### Analyzing the Bundle Size
+## Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Scripts
 
-### Making a Progressive Web App
+- `npm start`: Run in development mode
+- `npm build`: Build for production
+- `npm test`: Run tests
+- `npm eject`: Eject from Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Best Practices
 
-### Advanced Configuration
+- Use functional components and hooks
+- Separate logic and UI
+- Use Zustand for state management
+- Optimize performance with React.memo and useCallback
+- Clean code and consistent formatting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+1. Fork repository
+2. Create new branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add some amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Create Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+[MIT License](LICENSE)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+
+[Your Name] - [Your Email]
+
+Project Link: [https://github.com/wwenrr/grow-a-garden-notifier](https://github.com/yourusername/grow-a-garden-notifier)
