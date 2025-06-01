@@ -6,6 +6,7 @@ import { formatDate, getTimeAgo } from '@/core/helpers/timeHelper';
 import { useParamsStore } from '@/core/stores/paramsStore';
 import useNotifyStore from '@/core/stores/notifyStore';
 import useSettingsStore from '@/core/stores/settingsStore';
+import { toast } from 'react-toastify';
 
 const Blood = images.Website.Store.Blood;
 const Twilight = images.Website.Store.Twilight;
@@ -134,8 +135,10 @@ export default function Home({data}) {
     const handleNotify = (item, lastUpdate) => {
         const key = item.split(' **')[0];
         if (isNotified(key)) {
+            toast.error(`${key} has been removed from your notifications`);
             removeNotify(key);
         } else {
+            toast.success(`${key} has been added to your notifications`);
             addNotify(key, lastUpdate);
         }
     };

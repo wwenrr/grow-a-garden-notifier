@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { toast } from 'react-toastify';
 
 let audio = null;
 
@@ -51,10 +52,10 @@ const useSettingsStore = create(
           try {
             await audio.play();
           } catch (playError) {
-            console.log('Cần tương tác với người dùng trước khi phát âm thanh');
+            toast.error('Please interact with the user before playing the sound');
           }
         } catch (error) {
-          console.error('Lỗi khi xử lý âm thanh:', error);
+          toast.error('Fail to play sound:', error);
         }
       },
 

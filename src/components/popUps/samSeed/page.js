@@ -3,6 +3,7 @@ import useNotifyStore from "@/core/stores/notifyStore";
 import { motion } from "framer-motion";
 import { useParamsStore } from '@/core/stores/paramsStore';
 import styles from "./styles";
+import { toast } from 'react-toastify';
 
 export default function SamSeed() {
     const { isNotified, addNotify, removeNotify } = useNotifyStore();
@@ -16,8 +17,10 @@ export default function SamSeed() {
     const handleNotify = (key) => {
       if (isNotified(key)) {
         removeNotify(key);
+        toast.error(`${key} has been removed from your notifications`);
       } else {
         addNotify(key, new Date().toISOString());
+        toast.success(`${key} has been added to your notifications`);
       }
     };
   

@@ -6,6 +6,7 @@ import styles from "./styles";
 const Icon = images.Website.Header.Icon;
 const Setting = images.Website.Header.Setting;
 const SamSeedIcon = images.Website.Header["Sam's Seed"];
+const NotifyIcon = images.Website.Header.Notify;
 
 export default function Header() {
     const { syncToURL, updateParam } = useParamsStore();
@@ -14,6 +15,17 @@ export default function Header() {
         <header style={styles.header}>
           <img src={Icon} alt="Logo" style={styles.logo} />
           <div style={styles.headerRight}>
+            <motion.img 
+              src={NotifyIcon} 
+              alt="NotifyItemList" 
+              whileHover={{ rotate: 90 }}
+              transition={{ duration: 0.3 }}
+              style={{ ...styles.storeIcon, ...styles.settingButton }}
+              onClick={() => {
+                updateParam('notifyItemList', 'open');
+                syncToURL();
+              }}
+            />
             <motion.img 
               src={SamSeedIcon} 
               alt="Sam's Seed" 
