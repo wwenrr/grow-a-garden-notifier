@@ -43,23 +43,24 @@ export default function Home({data}) {
         const checkCropsChanges = () => {
             const sections = ['seeds', 'gear', 'egg'];
             sections.forEach(section => {
-                CurrentCrops[section].forEach(item => {
-                    const key = item.split(' **')[0];
-                    if (isNotified(key)) {
-                        const savedLastUpdate = getLastUpdate(key);
-
-                        if (savedLastUpdate && savedLastUpdate !== CurrentCrops.updatedAt) {
-                            addNotify(key, CurrentCrops.updatedAt);
-                            new Notification('Item Updated', {
-                                body: `${key} has been updated in Shop Stock`,
-                                icon: ItemsImage[key] || ItemsImage.NotFound
-                            });
-                            if (soundEnabled) {
-                                testSound();
+                if (CurrentCrops && CurrentCrops[section] && Array.isArray(CurrentCrops[section])) {
+                    CurrentCrops[section].forEach(item => {
+                        const key = item.split(' **')[0];
+                        if (isNotified(key)) {
+                            const savedLastUpdate = getLastUpdate(key);
+                            if (savedLastUpdate && savedLastUpdate === CurrentCrops.updatedAt) {
+                                addNotify(key, CurrentCrops.updatedAt);
+                                new Notification('Item Updated', {
+                                    body: `${key} has been updated in Shop Stock`,
+                                    icon: ItemsImage[key] || ItemsImage.NotFound
+                                });
+                                if (soundEnabled) {
+                                    testSound();
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             });
         };
 
@@ -75,22 +76,24 @@ export default function Home({data}) {
         const checkSpecCropsChanges = () => {
             const sections = ['cosmetics', 'blood', 'twilight'];
             sections.forEach(section => {
-                CurrentSpecCrops[section].forEach(item => {
-                    const key = item.split(' **')[0];
-                    if (isNotified(key)) {
-                        const savedLastUpdate = getLastUpdate(key);
-                        if (savedLastUpdate && savedLastUpdate !== CurrentSpecCrops.updatedAt) {
-                            addNotify(key, CurrentSpecCrops.updatedAt);
-                            new Notification('Item Updated', {
-                                body: `${key} has been updated in ${section === 'cosmetics' ? 'Shop Stock' : 'Event Store'}`,
-                                icon: ItemsImage[key] || ItemsImage.NotFound
-                            });
-                            if (soundEnabled) {
-                                testSound();
+                if (CurrentSpecCrops && CurrentSpecCrops[section] && Array.isArray(CurrentSpecCrops[section])) {
+                    CurrentSpecCrops[section].forEach(item => {
+                        const key = item.split(' **')[0];
+                        if (isNotified(key)) {
+                            const savedLastUpdate = getLastUpdate(key);
+                            if (savedLastUpdate && savedLastUpdate !== CurrentSpecCrops.updatedAt) {
+                                addNotify(key, CurrentSpecCrops.updatedAt);
+                                new Notification('Item Updated', {
+                                    body: `${key} has been updated in ${section === 'cosmetics' ? 'Shop Stock' : 'Event Store'}`,
+                                    icon: ItemsImage[key] || ItemsImage.NotFound
+                                });
+                                if (soundEnabled) {
+                                    testSound();
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             });
         };
 
@@ -104,7 +107,7 @@ export default function Home({data}) {
         if (!notificationsEnabled || !soundEnabled) return;
 
         const checkWeatherChanges = () => {
-            if (isNotified('weather')) {
+            if (CurrentWeather && isNotified('weather')) {
                 const savedLastUpdate = getLastUpdate('weather');
                 if (savedLastUpdate && savedLastUpdate !== CurrentWeather.updatedAt) {
                     addNotify('weather', CurrentWeather.updatedAt);
@@ -321,9 +324,11 @@ export default function Home({data}) {
                         <h2 style={styles.storeTitle}>Cosmetics</h2>
                     </div>
                     <div style={styles.itemList}>
-                        {CurrentSpecCrops.cosmetics.map((item, index) => 
-                            renderItem(item, index, CurrentSpecCrops.updatedAt)
-                        )}
+                        {CurrentSpecCrops && CurrentSpecCrops.cosmetics && Array.isArray(CurrentSpecCrops.cosmetics) && 
+                            CurrentSpecCrops.cosmetics.map((item, index) => 
+                                renderItem(item, index, CurrentSpecCrops.updatedAt)
+                            )
+                        }
                     </div>
                     </div>
 
@@ -333,9 +338,11 @@ export default function Home({data}) {
                         <h2 style={styles.storeTitle}>Seeds</h2>
                     </div>
                     <div style={styles.itemList}>
-                        {CurrentCrops.seeds.map((item, index) => 
-                            renderItem(item, index, CurrentCrops.updatedAt)
-                        )}
+                        {CurrentCrops && CurrentCrops.seeds && Array.isArray(CurrentCrops.seeds) && 
+                            CurrentCrops.seeds.map((item, index) => 
+                                renderItem(item, index, CurrentCrops.updatedAt)
+                            )
+                        }
                     </div>
                     </div>
 
@@ -345,9 +352,11 @@ export default function Home({data}) {
                         <h2 style={styles.storeTitle}>Gear</h2>
                     </div>
                     <div style={styles.itemList}>
-                        {CurrentCrops.gear.map((item, index) => 
-                            renderItem(item, index, CurrentCrops.updatedAt)
-                        )}
+                        {CurrentCrops && CurrentCrops.gear && Array.isArray(CurrentCrops.gear) && 
+                            CurrentCrops.gear.map((item, index) => 
+                                renderItem(item, index, CurrentCrops.updatedAt)
+                            )
+                        }
                     </div>
                     </div>
 
@@ -357,9 +366,11 @@ export default function Home({data}) {
                         <h2 style={styles.storeTitle}>Eggs</h2>
                     </div>
                     <div style={styles.itemList}>
-                        {CurrentCrops.egg.map((item, index) => 
-                            renderItem(item, index, CurrentCrops.updatedAt)
-                        )}
+                        {CurrentCrops && CurrentCrops.egg && Array.isArray(CurrentCrops.egg) && 
+                            CurrentCrops.egg.map((item, index) => 
+                                renderItem(item, index, CurrentCrops.updatedAt)
+                            )
+                        }
                     </div>
                     </div>
                 </motion.div>
@@ -402,9 +413,11 @@ export default function Home({data}) {
                         <h2 style={styles.storeTitle}>Blood Store</h2>
                     </div>
                     <div style={styles.itemList}>
-                        {CurrentSpecCrops.blood.map((item, index) => 
-                            renderItem(item, index, CurrentSpecCrops.updatedAt)
-                        )}
+                        {CurrentSpecCrops && CurrentSpecCrops.blood && Array.isArray(CurrentSpecCrops.blood) && 
+                            CurrentSpecCrops.blood.map((item, index) => 
+                                renderItem(item, index, CurrentSpecCrops.updatedAt)
+                            )
+                        }
                     </div>
                     </div>
 
@@ -414,9 +427,11 @@ export default function Home({data}) {
                         <h2 style={styles.storeTitle}>Twilight Store</h2>
                     </div>
                     <div style={styles.itemList}>
-                        {CurrentSpecCrops.twilight.map((item, index) => 
-                            renderItem(item, index, CurrentSpecCrops.updatedAt)
-                        )}
+                        {CurrentSpecCrops && CurrentSpecCrops.twilight && Array.isArray(CurrentSpecCrops.twilight) && 
+                            CurrentSpecCrops.twilight.map((item, index) => 
+                                renderItem(item, index, CurrentSpecCrops.updatedAt)
+                            )
+                        }
                     </div>
                     </div>
                 </motion.div>
