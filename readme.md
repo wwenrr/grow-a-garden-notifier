@@ -2,6 +2,11 @@
 
 A notification application for the Grow A Garden game, helping players track and receive notifications about in-game products.
 
+## Links
+
+- **Live Demo**: [https://grow-a-garden-notifier-six.vercel.app](https://grow-a-garden-notifier-six.vercel.app)
+- **Mock Test**: [https://grow-a-garden-notifier-six.vercel.app/?mockTest=true](https://grow-a-garden-notifier-six.vercel.app/?mockTest=true)
+
 ## Key Features
 
 - Track product list in the game
