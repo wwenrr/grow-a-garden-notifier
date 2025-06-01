@@ -5,11 +5,17 @@ const useDataStore = create(
     persist(
         (set, get) => ({
             data: {},
+            lastCacheTime: null,
 
-            setData: (key, data) => set({ data: { ...get().data, [key]: data } }),
-            setDataStore: (data) => set({ data }),
+            setDataStore: (data) => set({ 
+                data, 
+                lastCacheTime: new Date().getTime() 
+            }),
             getDataStore: () => get().data,
-
+            getLastCacheTime: () => {
+                const time = get().lastCacheTime;
+                return time ? new Date(time) : null;
+            },
             getCurrentCrops: () => get().data.CurrentCrops,
             getCurrentSpecCrops: () => get().data.CurrentSpecCrops,
             getCurrentWeather: () => get().data.CurrentWeather,
@@ -29,7 +35,10 @@ const useDataStore = create(
         }),
         {
             name: 'data-storage',
-            partialize: (state) => ({ data: state.data })
+            partialize: (state) => ({ 
+                data: state.data,
+                lastCacheTime: state.lastCacheTime 
+            })
         }
     )
 );

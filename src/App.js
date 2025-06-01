@@ -14,29 +14,53 @@ function App() {
   const location = useLocation();
   const mockTest = location.search.includes('mockTest=true');
   const { syncFromURL } = useParamsStore();
-  const { getCurrentCrops, getCurrentSpecCrops, getCurrentWeather, checkDataEmpty, setDataStore, getDataStore, checkTime } = useDataStore();
+  const { getCurrentCrops, getCurrentSpecCrops, getCurrentWeather, checkDataEmpty, setDataStore, getDataStore, checkTime, getLastCacheTime } = useDataStore();
   const [data, setData] = useState(null);
 
   const fetchData = async () => {
     try {
       let data = getDataStore();
-      
-      const checkCurrentCrops = checkTime('CurrentCrops');
-      const checkCurrentSpecCrops = checkTime('CurrentSpecCrops');
-      const checkCurrentWeather = checkTime('CurrentWeather');
+      const lastCacheTime = getLastCacheTime();
 
-      if(checkCurrentCrops) {
-        console.log('Fetch CurrentCrops');
+      if(lastCacheTime) {
+        const currentTime = new Date();
+        const timeDiff = currentTime - lastCacheTime;
+        const minutesDiff = timeDiff / (1000 * 60);
+
+        if(minutesDiff <= 2) {
+          toast.info('Data was cached, use cached data...', { autoClose: 500 });
+          setData(data);
+        } else {
+          if(data === null || data === undefined) {
+            toast.info('Data not in storage, fetching new data...');
+            data.CurrentCrops = await apiService.getCurrentCrops();
+            data.CurrentSpecCrops = await apiService.getCurrentSpecCrops();
+            data.CurrentWeather = await apiService.getCurrentWeather();
+          } else {
+            const checkCurrentCrops = checkTime('CurrentCrops');
+            const checkCurrentSpecCrops = checkTime('CurrentSpecCrops');
+            const checkCurrentWeather = checkTime('CurrentWeather');
+
+            if(checkCurrentCrops) {
+              data.CurrentCrops = await apiService.getCurrentCrops();
+              toast.success('Fetching CurrentCrops', { autoClose: 500 });
+            }
+
+            if(checkCurrentSpecCrops) {
+              data.CurrentSpecCrops = await apiService.getCurrentSpecCrops();
+              toast.success('Fetching CurrentSpecCrops', { autoClose: 500 });
+            }
+
+            if(checkCurrentWeather) {
+              data.CurrentWeather = await apiService.getCurrentWeather();
+              toast.success('Fetching CurrentWeather', { autoClose: 500 });
+            }
+          }
+        }
+      } else {
+        toast.info('Data not in storage, fetching new data...', { autoClose: 500 });
         data.CurrentCrops = await apiService.getCurrentCrops();
-      }
-
-      if(checkCurrentSpecCrops) {
-        console.log('Fetch CurrentSpecCrops');
         data.CurrentSpecCrops = await apiService.getCurrentSpecCrops();
-      }
-
-      if(checkCurrentWeather) {
-        console.log('Fetch CurrentWeather');
         data.CurrentWeather = await apiService.getCurrentWeather();
       }
 
@@ -56,7 +80,6 @@ function App() {
       toast.info('Mock Test active');
       setData(mockData);
     } else {
-      toast.info('Fetching data...');
       fetchData();
 
       const interval = setInterval(() => {
