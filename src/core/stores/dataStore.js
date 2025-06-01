@@ -14,7 +14,7 @@ const useDataStore = create(
             getDataStore: () => get().data,
             getLastCacheTime: () => {
                 const time = get().lastCacheTime;
-                return time ? new Date(time) : null;
+                return time ? time : new Date().getTime();
             },
             getCurrentCrops: () => get().data.CurrentCrops,
             getCurrentSpecCrops: () => get().data.CurrentSpecCrops,
