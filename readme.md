@@ -1,6 +1,6 @@
 # Grow A Garden Notifier
 
-A notification application for the Grow A Garden game, helping players track and receive notifications about in-game products.
+A notification application for the Grow A Garden game, helping players track and receive notifications about in-game products. The app provides real-time updates about shop items, event store items, and weather conditions.
 
 ## Links
 
@@ -9,16 +9,41 @@ A notification application for the Grow A Garden game, helping players track and
 
 ## Key Features
 
-- Track product list in the game
-- Receive notifications for product updates
-- User-friendly interface with smooth animations
-- Easy notification list management
-- URL parameter integration for state persistence
+### Product Tracking
+- Track items from Shop Stock (Seeds, Gear, Eggs)
+- Track items from Event Stores (Blood Store, Twilight Store)
+- Track weather conditions and their effects
+- Real-time notifications for item updates
+- Customizable notification settings
+
+### Data Management
+- Automatic data caching with 2-minute expiration
+- Background data refresh every 60 seconds
+- Mock data support for testing
+- Persistent storage using Zustand persist middleware
+
+### User Interface
+- Dark theme with glassmorphism design
+- Smooth animations using Framer Motion
+- Responsive layout
+- Interactive product cards
+- Custom scrollbars
+- Toast notifications with configurable duration
+
+### Notification System
+- Browser notification support
+- Sound notifications
+- Visual indicators for tracked items
+- Notification history
+- Easy notification management
 
 ## Technologies Used
 
 - **Frontend Framework**: React 19.1.0
 - **State Management**: Zustand 5.0.5
+  - Persistent storage
+  - URL synchronization
+  - Multiple stores (data, params, notify, settings)
 - **Routing**: React Router DOM 7.6.1
 - **Animation**: Framer Motion 12.15.0
 - **Styling**: Emotion (React & Styled) 11.14.0
@@ -30,17 +55,24 @@ A notification application for the Grow A Garden game, helping players track and
 ```
 src/
 ├── components/         # Reusable components
-│   ├── layouts/       # Layout components
-│   └── popUps/        # Popup components
+│   ├── layouts/       # Layout components (Header)
+│   └── popUps/        # Popup components (Settings, SamSeed, NotifyItemList)
 ├── core/              # Core functionality
 │   ├── constants/     # Constants and configurations
 │   ├── data/         # Data models and mocks
-│   ├── helpers/      # Utility functions
+│   │   ├── _mock/    # Mock data for testing
+│   │   └── images/   # Image assets
+│   ├── helpers/      # Utility functions (time formatting)
 │   ├── models/       # Data models
 │   ├── services/     # API services
 │   └── stores/       # Zustand stores
+│       ├── dataStore.js      # Data management
+│       ├── notifyStore.js    # Notification tracking
+│       ├── paramsStore.js    # URL parameters
+│       └── settingsStore.js  # User settings
 ├── pages/            # Page components
-├── App.js           # Root component
+│   └── home/        # Main page with product lists
+├── App.js           # Root component with data fetching
 ├── index.js         # Entry point
 └── styles.js        # Global styles
 ```
@@ -49,7 +81,7 @@ src/
 
 1. Clone repository:
 ```bash
-git clone [repository-url]
+git clone https://github.com/wwenrr/grow-a-garden-notifier.git
 cd grow-a-garden-notifier
 ```
 
@@ -74,31 +106,71 @@ npm run build
 
 The application uses the following URL parameters:
 - `notifyItemList`: Display notification list
-- `settings`: Open settings
-- `samSeed`: Open Sam Seed popup
+- `settings`: Open settings panel
+- `samSeed`: Open Sam's Seed popup
+- `mockTest`: Enable mock data mode
 
 ### Stores
 
-- **paramsStore**: Manages URL parameters and URL synchronization
-- **notifyStore**: Manages notification list and CRUD operations
+#### DataStore
+- Manages application data
+- Handles data caching
+- Provides data fetching methods
+- Cache expiration: 2 minutes
 
-## Detailed Features
+#### NotifyStore
+- Manages notification list
+- Tracks item updates
+- Handles notification CRUD operations
+- Persistent storage
 
-### NotifyItemList
+#### ParamsStore
+- Manages URL parameters
+- Synchronizes state with URL
+- Handles popup states
 
-- Display list of tracked products
-- Allow removal of products from the list
-- Show last update time
-- Smooth open/close animations
-- Close by clicking outside
+#### SettingsStore
+- Manages user preferences
+- Controls notification settings
+- Handles sound settings
+- Persistent storage
 
-### UI/UX
+## Features in Detail
 
-- Dark interface with blur effects
-- Smooth animations for all interactions
-- Responsive design
-- Custom scrollbar
-- Toast notifications for actions
+### Data Management
+- Automatic data refresh every 60 seconds
+- Cache validation before fetching
+- Mock data support for testing
+- Error handling with console logging
+
+### Notification System
+- Browser notification support
+- Sound notifications with fallback
+- Visual indicators for tracked items
+- Notification history tracking
+- Easy add/remove functionality
+
+### UI Components
+
+#### Header
+- Logo display
+- Navigation buttons
+- Settings access
+- Notification list access
+
+#### Popups
+- Settings panel
+- Notification list
+- Sam's Seed information
+- Smooth animations
+- Click-outside closing
+
+#### Product Cards
+- Item images
+- Update timestamps
+- Notification status
+- Interactive hover effects
+- Click-to-notify functionality
 
 ## Development
 
@@ -111,11 +183,12 @@ The application uses the following URL parameters:
 
 ### Best Practices
 
-- Use functional components and hooks
-- Separate logic and UI
-- Use Zustand for state management
-- Optimize performance with React.memo and useCallback
-- Clean code and consistent formatting
+- Functional components with hooks
+- Separation of concerns
+- Zustand for state management
+- Performance optimization
+- Clean code structure
+- Consistent formatting
 
 ## Contributing
 
@@ -131,6 +204,4 @@ The application uses the following URL parameters:
 
 ## Contact
 
-[Your Name] - [Your Email]
-
-Project Link: [https://github.com/wwenrr/grow-a-garden-notifier](https://github.com/yourusername/grow-a-garden-notifier)
+Project Link: [https://github.com/wwenrr/grow-a-garden-notifier](https://github.com/wwenrr/grow-a-garden-notifier)

@@ -167,7 +167,7 @@ export default function NotifyItemList() {
                   style={styles.removeButton}
                   onClick={() => {
                     removeNotify(item.key);
-                    toast.success('Product removed from notification list');
+                    toast.success('Product removed from notification list', { autoClose: 500 });
                   }}
                 >
                   ×

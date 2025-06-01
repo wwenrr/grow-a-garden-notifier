@@ -135,10 +135,10 @@ export default function Home({data}) {
     const handleNotify = (item, lastUpdate) => {
         const key = item.split(' **')[0];
         if (isNotified(key)) {
-            toast.error(`${key} has been removed from your notifications`);
+            toast.error(`${key} has been removed from your notifications`, { autoClose: 500 });
             removeNotify(key);
         } else {
-            toast.success(`${key} has been added to your notifications`);
+            toast.success(`${key} has been added to your notifications`, { autoClose: 500 });
             addNotify(key, lastUpdate);
         }
     };
