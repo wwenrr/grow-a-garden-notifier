@@ -27,7 +27,7 @@ function App() {
         const timeDiff = currentTime - lastCacheTime;
         const minutesDiff = timeDiff / (1000 * 60);
 
-        if(minutesDiff <= 2) {
+        if(minutesDiff <= 1) {
           toast.info('Data was cached, use cached data...', { autoClose: 500 });
           setData(data);
         } else {
