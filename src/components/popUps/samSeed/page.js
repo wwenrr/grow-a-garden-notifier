@@ -17,10 +17,10 @@ export default function SamSeed() {
     const handleNotify = (key) => {
       if (isNotified(key)) {
         removeNotify(key);
-        toast.error(`${key} has been removed from your notifications`);
+        toast.error(`${key} has been removed from your notifications`, { autoClose: 300 });
       } else {
         addNotify(key, new Date().toISOString());
-        toast.success(`${key} has been added to your notifications`);
+        toast.success(`${key} has been added to your notifications`, { autoClose: 300 });
       }
     };
   
