@@ -52,10 +52,10 @@ const useSettingsStore = create(
           try {
             await audio.play();
           } catch (playError) {
-            toast.error('Please interact with the user before playing the sound');
+            toast.error('Please interact with the user before playing the sound', { autoClose: 300 });
           }
         } catch (error) {
-          toast.error('Fail to play sound:', error);
+          toast.error(`Fail to play sound: ${error}`, { autoClose: 300 });
         }
       },
 

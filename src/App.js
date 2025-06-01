@@ -28,7 +28,8 @@ function App() {
         const minutesDiff = timeDiff / (1000 * 60);
 
         if(minutesDiff <= 1) {
-          toast.info('Data was cached, use cached data...', { autoClose: 500 });
+          toast.info(`Data was cached, use cached data...`, { autoClose: 500 });
+          console.log('Data was cached, use cached data...', minutesDiff);
           setData(data);
         } else {
           if(data === null || data === undefined) {
