@@ -15,7 +15,7 @@ function App() {
   const location = useLocation();
   const mockTest = location.search.includes('mockTest=true');
   const { syncFromURL } = useParamsStore();
-  const { setDataStore, getDataStore, checkTime, getLastCacheTime } = useDataStore();
+  const { setDataStore, getDataStore, checkTime, getLastCacheTime, updateLastCacheTime } = useDataStore();
   const [data, setData] = useState(null);
   const [countdown, setCountdown] = useState(INTERVAL.CHECK_DATA / 1000);
 
@@ -68,6 +68,7 @@ function App() {
       }
 
       setDataStore(data);
+      updateLastCacheTime();
       setData(data);
     } catch (error) {
       console.log(error);

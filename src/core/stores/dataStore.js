@@ -8,8 +8,10 @@ const useDataStore = create(
             lastCacheTime: null,
 
             setDataStore: (data) => set({ 
-                data, 
-                lastCacheTime: new Date().getTime() 
+                data
+            }),
+            updateLastCacheTime: () => set({
+                lastCacheTime: new Date().getTime()
             }),
             getDataStore: () => get().data,
             getLastCacheTime: () => {
